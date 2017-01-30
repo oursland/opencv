@@ -1,3 +1,11 @@
+opencv (2.4.9.1+dfsg-2.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add Breaks against all non-v5 packages to all v5 packages, this
+    fixes apt dist-upgrade. (Closes: #853124)
+
+ -- Julian Andres Klode <jak@debian.org>  Mon, 30 Jan 2017 13:21:19 +0100
+
 opencv (2.4.9.1+dfsg-2.1) unstable; urgency=medium
 
   * Non-maintainer upload.
