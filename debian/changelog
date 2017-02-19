@@ -1,3 +1,10 @@
+opencv (2.4.9.1+dfsg1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 2.4.9.1+dfsg1 (Closes: #794856)
+
+ -- Jochen Sprickerhof <jspricke@debian.org>  Sun, 19 Feb 2017 17:15:16 +0100
+
 opencv (2.4.9.1+dfsg-2.2) unstable; urgency=medium
 
   * Non-maintainer upload.
