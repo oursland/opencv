@@ -1,3 +1,11 @@
+opencv (2.4.9.1+dfsg1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Do not forcefully disable PIE anymore, -pie changed meaning.
+    Closes: #859440
+
+ -- Mattia Rizzolo <mattia@debian.org>  Mon, 03 Apr 2017 18:28:26 +0200
+
 opencv (2.4.9.1+dfsg1-1) unstable; urgency=medium
 
   * Team upload.
