@@ -1,3 +1,10 @@
+opencv (3.2.0+dfsg-4) unstable; urgency=medium
+
+  * Install maven artifacts. (Closes: #878949)
+    Thanks to Gilles Filippini <pini@debian.org>.
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Wed, 18 Oct 2017 19:01:55 +0900
+
 opencv (3.2.0+dfsg-3) unstable; urgency=medium
 
   * Team upload.

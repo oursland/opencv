@@ -68,7 +68,7 @@ CMAKE_FLAGS = \
 	$(CMAKE_ARCH_FLAGS)
 
 %:
-	dh $@ --with python2,python3,javahelper --parallel
+	dh $@ --with python2,python3,javahelper,jh_maven_repo_helper --parallel
 
 override_dh_clean:
 	rm -rvf modules/python/src2/hdr_parser.pyc
