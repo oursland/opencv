@@ -116,9 +116,9 @@ Replaces:
  libcvaux-dev,
  libhighgui-dev,
 Conflicts:
- libcv-dev (<= 2.4.9.1+dfsg-2.1),
- libcvaux-dev (<= 2.4.9.1+dfsg-2.1),
- libhighgui-dev (<= 2.4.9.1+dfsg-2.1),
+ libcv-dev,
+ libcvaux-dev,
+ libhighgui-dev,
 Description: development files for opencv
  This is a metapackage providing development package necessary for
  development of OpenCV (Open Computer Vision).
