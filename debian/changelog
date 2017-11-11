@@ -1,3 +1,16 @@
+opencv (3.2.0+dfsg-4) unstable; urgency=medium
+
+  * Team upload.
+  * Install maven artifacts with maven-repo-helper so reverse dependencies can
+    automatically pick the dependency by using ${maven:Depends}.
+    Thanks to Gilles Filippini <pini@debian.org> for the patch.  Closes: #878949
+  * d/control:
+    + Use unversioned Conflicts in libopencv-dev, to force the removal
+      of some old packages.  Closes: #880921
+    + Remove dbus-x11 work around now that #878878 is fixed.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Sat, 11 Nov 2017 12:27:47 +0100
+
 opencv (3.2.0+dfsg-3) unstable; urgency=medium
 
   * Team upload.
