@@ -9,7 +9,7 @@ opencv (3.2.0+dfsg-4) unstable; urgency=medium
       of some old packages.  Closes: #880921
     + Remove dbus-x11 work around now that #878878 is fixed.
 
- -- Mattia Rizzolo <mattia@debian.org>  Sat, 11 Nov 2017 12:27:47 +0100
+ -- Mattia Rizzolo <mattia@debian.org>  Sat, 11 Nov 2017 13:46:48 +0100
 
 opencv (3.2.0+dfsg-3) unstable; urgency=medium
 
