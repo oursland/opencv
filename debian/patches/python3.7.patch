@@ -1,0 +1,16 @@
+Description: Fix FTBFS with Python 3.7
+Bug-Debian: https://bugs.debian.org/914752
+Acked-By: Mattia Rizzolo <mattia@debian.org>
+Last-Update: 2018-11-28
+
+--- a/modules/python/src2/cv2.cpp
++++ b/modules/python/src2/cv2.cpp
+@@ -727,7 +727,7 @@
+     (void)name;
+     if(!obj || obj == Py_None)
+         return true;
+-    char* str = PyString_AsString(obj);
++    const char* str = PyString_AsString(obj);
+     if(!str)
+         return false;
+     value = String(str);

@@ -6,3 +6,4 @@ change_jquery.js_path
 disable_dnn.patch
 fix_VFP_asm.patch
 ffmpeg4.0.patch
+python3.7.patch
