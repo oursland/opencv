@@ -1,3 +1,11 @@
+opencv (3.2.0+dfsg-5) unstable; urgency=medium
+
+  * Team upload.
+  * Add patch to fix FTBFS with Python 3.7.  Closes: #914752
+  * d/control: Set the git branch in Vcs-Git.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Wed, 28 Nov 2018 12:35:19 +0100
+
 opencv (3.2.0+dfsg-4.1) unstable; urgency=medium
 
   * Non-maintainer upload.
