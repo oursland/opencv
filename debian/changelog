@@ -1,3 +1,51 @@
+opencv (3.2.0+dfsg-5ubuntu1) disco; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes:
+  * SECURITY UPDATE: Out-of-bounds read/write errors and buffer
+    overflows in different functions.
+    - debian/patches/CVE-2017-several.patch: fix in bitstrm.cpp,
+      bitstrm.hpp, grfmt_bmp.cpp, grfmt_pxm.cpp, loadsave.cpp,
+      test_grfmt.cpp and cuda_test.cpp.
+    - CVE-2016-1516
+    - CVE-2016-1517
+    - CVE-2017-12597
+    - CVE-2017-12598
+    - CVE-2017-12599
+    - CVE-2017-12600
+    - CVE-2017-12601
+    - CVE-2017-12602
+    - CVE-2017-12603
+    - CVE-2017-12604
+    - CVE-2017-12605
+    - CVE-2017-12606
+    - CVE-2017-12862
+    - CVE-2017-12863
+    - CVE-2017-12864
+  * SECURITY UPDATE: Out of bound write cause segmentation fault
+    - debian/patches/CVE-2017-14136.patch: fix in grfmt_bmp.cpp,
+      grfmt_exr.cpp, grfmt_jpeg.cpp, grfmt_jpeg2000.cpp,
+      grfmt_pam.cpp, grfmt_sunras.cpp, utils.cpp and utils.hpp.
+    - CVE-2017-14136
+  * SECURITY UPDATE: Buffer Overflow in the cv::PxMDecoder::readData
+    function in grfmt_pxm.cpp
+    - debian/patches/CVE-2017-17760.patch: fix in grfmt_pxm.cpp.
+    - CVE-2017-17760
+  * SECURITY UPDATE: Integer overflow may lead to remote execution or
+    denial of service
+    - debian/patches/CVE-2017-1000450.patch: fix in grfmt_bmp.cpp.
+    - CVE-2017-1000450
+  * SECURITY UPDATE: A heap-based buffer overflow happens in
+    cv::Jpeg2KDecoder::readComponent8u when parsing a crafted image file
+    - debian/patches/CVE-2018-5268.patch: fix in grfmt_jpeg2000.cpp.
+    - CVE-2018-5268
+  * SECURITY UPDATE: an assertion failure happens in
+    cv::RBaseStream::setPos in modules/imgcodecs/src/bitstrm.cpp because
+    of an incorrect integer cast.
+    - debian/patches/CVE-2018-5269.patch: add overflow checks.
+    - CVE-2018-5269
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Wed, 28 Nov 2018 19:35:26 +0100
+
 opencv (3.2.0+dfsg-5) unstable; urgency=medium
 
   * Team upload.
@@ -5,6 +53,77 @@ opencv (3.2.0+dfsg-5) unstable; urgency=medium
   * d/control: Set the git branch in Vcs-Git.
 
  -- Mattia Rizzolo <mattia@debian.org>  Wed, 28 Nov 2018 12:35:19 +0100
+
+opencv (3.2.0+dfsg-4.1ubuntu3) disco; urgency=medium
+
+  * No-change rebuild against latest protobuf
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 10 Nov 2018 14:51:43 -0500
+
+opencv (3.2.0+dfsg-4.1ubuntu2) disco; urgency=medium
+
+  * Build with -fpermissive for now.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 01 Nov 2018 09:15:58 +0100
+
+opencv (3.2.0+dfsg-4.1ubuntu1) disco; urgency=medium
+
+  * No-change rebuild for Python 3.7 as the default Python 3.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 31 Oct 2018 17:43:25 +0100
+
+opencv (3.2.0+dfsg-4.1ubuntu0.1) cosmic-security; urgency=medium
+
+  * SECURITY UPDATE: Out-of-bounds read/write errors and buffer
+    overflows in different functions.
+    - debian/patches/CVE-2017-several.patch: fix in bitstrm.cpp,
+      bitstrm.hpp, grfmt_bmp.cpp, grfmt_pxm.cpp, loadsave.cpp,
+      test_grfmt.cpp and cuda_test.cpp.
+    - CVE-2016-1516
+    - CVE-2016-1517
+    - CVE-2017-12597
+    - CVE-2017-12598
+    - CVE-2017-12599
+    - CVE-2017-12600
+    - CVE-2017-12601
+    - CVE-2017-12602
+    - CVE-2017-12603
+    - CVE-2017-12604
+    - CVE-2017-12605
+    - CVE-2017-12606
+    - CVE-2017-12862
+    - CVE-2017-12863
+    - CVE-2017-12864
+  * SECURITY UPDATE: Out of bound write cause segmentation fault
+    - debian/patches/CVE-2017-14136.patch: fix in grfmt_bmp.cpp,
+      grfmt_exr.cpp, grfmt_jpeg.cpp, grfmt_jpeg2000.cpp,
+      grfmt_pam.cpp, grfmt_sunras.cpp, utils.cpp and utils.hpp.
+    - CVE-2017-14136
+  * SECURITY UPDATE: Buffer Overflow in the cv::PxMDecoder::readData
+    function in grfmt_pxm.cpp
+    - debian/patches/CVE-2017-17760.patch: fix in grfmt_pxm.cpp.
+    - CVE-2017-17760
+  * SECURITY UPDATE: Integer overflow may lead to remote execution or
+    denial of service
+    - debian/patches/CVE-2017-1000450.patch: fix in grfmt_bmp.cpp.
+    - CVE-2017-1000450
+  * SECURITY UPDATE: A heap-based buffer overflow happens in
+    cv::Jpeg2KDecoder::readComponent8u when parsing a crafted image file
+    - debian/patches/CVE-2018-5268.patch: fix in grfmt_jpeg2000.cpp.
+    - CVE-2018-5268
+  * SECURITY UPDATE: an assertion failure happens in
+    cv::RBaseStream::setPos in modules/imgcodecs/src/bitstrm.cpp because
+    of an incorrect integer cast.
+    - debian/patches/CVE-2018-5269.patch: add overflow checks.
+    - CVE-2018-5269
+
+ -- Eduardo Barretto <eduardo.barretto@canonical.com>  Tue, 25 Sep 2018 12:22:15 -0300
+
+opencv (3.2.0+dfsg-4.1build1) cosmic; urgency=medium
+
+  * No-change rebuild for ffmpeg soname changes.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 19 Jul 2018 08:43:40 +0000
 
 opencv (3.2.0+dfsg-4.1) unstable; urgency=medium
 
@@ -1262,4 +1381,3 @@ opencv (0.9.5-1) unstable; urgency=low
   * Initial release.
 
  -- Sam Hocevar (Debian packages) <sam+deb@zoy.org>  Thu, 22 Apr 2004 14:55:19 +0200
-

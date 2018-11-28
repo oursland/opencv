@@ -7,3 +7,9 @@ disable_dnn.patch
 fix_VFP_asm.patch
 ffmpeg4.0.patch
 python3.7.patch
+CVE-2017-several.patch
+CVE-2017-14136.patch
+CVE-2017-17760.patch
+CVE-2017-1000450.patch
+CVE-2018-5268.patch
+CVE-2018-5269.patch
