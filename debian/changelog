@@ -1,3 +1,10 @@
+opencv (3.2.0+dfsg-4.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * debian/patches: Fix building with ffmpeg 4.0. (Closes: #888386)
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Wed, 11 Jul 2018 22:59:18 +0200
+
 opencv (3.2.0+dfsg-4) unstable; urgency=medium
 
   * Team upload.
