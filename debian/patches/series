@@ -3,3 +3,4 @@ cmake-dont-install-inexistent-files.patch
 0004-Add-missing-header-for-LIBAVCODEC_VERSION_INT.patch
 0005-Fix-building-error-with-OGRE-1.12.9.patch
 0006-Fix-LAPACK-finding-CMake-code.patch
+0007-Build-highgui-module-with-QT-support.patch
