@@ -41,9 +41,11 @@ else
 CMAKE_ARCH_FLAGS += -DWITH_1394=OFF -DWITH_V4L=OFF
 endif
 
+CMAKE_JAVA_FLAGS :=
+
 # Java support
 ifeq (,$(filter $(DEB_HOST_ARCH), hppa hurd-i386 kfreebsd-i386 kfreebsd-amd64))
-CMAKE_ARCH_FLAGS += -DBUILD_JAVA=ON
+CMAKE_JAVA_FLAGS += -DBUILD_JAVA=ON
 endif
 
 # mitigate compiler OOM during build
@@ -132,7 +134,7 @@ override_dh_auto_clean:
 override_dh_auto_configure:
 	# dynamicly linked
 	dh_auto_configure -B $(BUILDDIR) \
-		-- $(CMAKE_FLAGS) \
+		-- $(CMAKE_FLAGS) $(CMAKE_JAVA_FLAGS) \
 		-DCMAKE_SHARED_LINKER_FLAGS_RELEASE="$(LDFLAGS)" \
 		-DBUILD_SHARED_LIBS=ON -DBUILD_DOCS=ON \
 		-DBUILD_TESTS=OFF
@@ -140,7 +142,8 @@ override_dh_auto_configure:
 	dh_auto_configure -B $(BUILDDIR)-static \
 		-- $(CMAKE_FLAGS) \
 		-DBUILD_SHARED_LIBS=OFF -DBUILD_DOCS=OFF \
-		-DBUILD_TESTS=OFF -DBUILD_opencv_python3=OFF
+		-DBUILD_TESTS=OFF -DBUILD_opencv_python3=OFF \
+		-DBUILD_opencv_apps=OFF -DBUILD_JAVA=OFF
 
 override_dh_auto_build:
 	# documentation
