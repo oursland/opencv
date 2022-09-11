@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+include /usr/share/dpkg/architecture.mk
+
 export DEB_BUILD_MAINT_OPTIONS=hardening=+all
 
 BUILDDIR = obj-$(DEB_HOST_MULTIARCH)
@@ -39,9 +41,11 @@ else
 CMAKE_ARCH_FLAGS += -DWITH_1394=OFF -DWITH_V4L=OFF
 endif
 
+CMAKE_JAVA_FLAGS :=
+
 # Java support
-ifeq (,$(findstring $(DEB_HOST_ARCH), hppa hurd-i386 kfreebsd-i386 kfreebsd-amd64))
-CMAKE_ARCH_FLAGS += -DBUILD_JAVA=ON
+ifeq (,$(filter $(DEB_HOST_ARCH), hppa hurd-i386 kfreebsd-i386 kfreebsd-amd64))
+CMAKE_JAVA_FLAGS += -DBUILD_JAVA=ON
 endif
 
 # mitigate compiler OOM during build
@@ -57,9 +61,6 @@ endif
 # For Java
 export JAVA_HOME=/usr/lib/jvm/default-java
 
-# NOTES:
-# 1. we set WITH_QT=OFF because files under modules/highgui/src/files_Qt/Milky
-#    have been filtered, which are required for the QT build.
 CMAKE_FLAGS = \
 	-GNinja \
 	-DANT_EXECUTABLE=/usr/bin/ant \
@@ -86,6 +87,7 @@ CMAKE_FLAGS = \
 	-DOPENCV_SKIP_PYTHON_LOADER=ON \
 	-DOPENCV_GENERATE_PKGCONFIG=ON \
 	-DOPENCV_LAPACK_FIND_PACKAGE_ONLY=ON \
+	-DOPENCV_DOWNLOAD_TRIES_LIST= \
 	-DOpenGL_GL_PREFERENCE=GLVND \
 	-DPROTOBUF_UPDATE_FILES=ON \
 	-DWITH_ADE=OFF \
@@ -97,7 +99,7 @@ CMAKE_FLAGS = \
 	-DWITH_GDCM=ON \
 	-DWITH_GSTREAMER=ON \
 	-DWITH_GPHOTO2=ON \
-	-DWITH_GTK=ON \
+	-DWITH_GTK=OFF \
 	-DWITH_IPP=OFF \
 	-DWITH_ITT=OFF \
 	-DWITH_JASPER=OFF \
@@ -110,7 +112,7 @@ CMAKE_FLAGS = \
 	-DWITH_PNG=ON	\
 	-DWITH_PROTOBUF=ON \
 	-DWITH_PVAPI=ON	\
-	-DWITH_QT=OFF \
+	-DWITH_QT=5 \
 	-DWITH_QUIRC=OFF \
 	-DWITH_TIFF=ON	\
 	-DWITH_UNICAP=OFF \
@@ -129,7 +131,7 @@ override_dh_auto_clean:
 override_dh_auto_configure:
 	# dynamicly linked
 	dh_auto_configure -B $(BUILDDIR) \
-		-- $(CMAKE_FLAGS) \
+		-- $(CMAKE_FLAGS) $(CMAKE_JAVA_FLAGS) \
 		-DCMAKE_SHARED_LINKER_FLAGS_RELEASE="$(LDFLAGS)" \
 		-DBUILD_SHARED_LIBS=ON -DBUILD_DOCS=ON \
 		-DBUILD_TESTS=OFF
@@ -137,7 +139,8 @@ override_dh_auto_configure:
 	dh_auto_configure -B $(BUILDDIR)-static \
 		-- $(CMAKE_FLAGS) \
 		-DBUILD_SHARED_LIBS=OFF -DBUILD_DOCS=OFF \
-		-DBUILD_TESTS=OFF -DBUILD_opencv_python3=OFF
+		-DBUILD_TESTS=OFF -DBUILD_opencv_python3=OFF \
+		-DBUILD_opencv_apps=OFF -DBUILD_JAVA=OFF
 
 override_dh_auto_build:
 	# documentation

@@ -1,0 +1,43 @@
+From: Victor Westerhuis <VJ.Westerhuis@student.han.nl>
+Date: Fri, 9 Sep 2022 14:01:42 +0200
+Subject: Fix LAPACK finding CMake code
+
+On Debian cblas.h and lapacke.h are not installed in the same include
+directory. This does not matter when compiling, but the custom header
+check in OpenCV fails on it. Force OpenCV to use the standard CMake
+check_include_file function to do the check so it succeeds.
+---
+ cmake/OpenCVFindLAPACK.cmake | 19 ++++---------------
+ 1 file changed, 4 insertions(+), 15 deletions(-)
+
+diff --git a/cmake/OpenCVFindLAPACK.cmake b/cmake/OpenCVFindLAPACK.cmake
+index 9b1b60f..f51479b 100644
+--- a/cmake/OpenCVFindLAPACK.cmake
++++ b/cmake/OpenCVFindLAPACK.cmake
+@@ -1,22 +1,11 @@
+ macro(_find_header_file_in_dirs VAR NAME)
+   unset(${VAR})
+   unset(${VAR} CACHE)
+-  if(" ${ARGN}" STREQUAL " ")
+-    check_include_file("${NAME}" HAVE_${VAR})
+-    if(HAVE_${VAR})
+-      set(${VAR} "${NAME}") # fallback
+-    else()
+-      set(${VAR} "")
+-    endif()
++  check_include_file("${NAME}" HAVE_${VAR})
++  if(HAVE_${VAR})
++    set(${VAR} "${NAME}") # fallback
+   else()
+-    find_path(${VAR} "${NAME}" ${ARGN} NO_DEFAULT_PATH)
+-    if(${VAR})
+-      set(${VAR} "${${VAR}}/${NAME}")
+-      unset(${VAR} CACHE)
+-    else()
+-      unset(${VAR} CACHE)
+-      set(${VAR} "")
+-    endif()
++    set(${VAR} "")
+   endif()
+ endmacro()
+ 

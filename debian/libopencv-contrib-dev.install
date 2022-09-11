@@ -22,6 +22,11 @@ usr/include/opencv4/opencv2/ccalib/*
 usr/include/opencv4/opencv2/ccalib.hpp
 usr/lib/*/libopencv_ccalib.a
 usr/lib/*/libopencv_ccalib.so
+# cvv
+usr/include/opencv4/opencv2/cvv/*
+usr/include/opencv4/opencv2/cvv.hpp
+usr/lib/*/libopencv_cvv.a
+usr/lib/*/libopencv_cvv.so
 # dpm
 usr/include/opencv4/opencv2/dpm.hpp
 usr/lib/*/libopencv_dpm.a
