@@ -1,3 +1,16 @@
+opencv (4.6.0+dfsg-7) UNRELEASED; urgency=medium
+
+  [ Victor Westerhuis ]
+  * Do not try to download any files while building (Closes: 1019519)
+  * Support building by directly calling d/rules
+  * Fix Java architecture test in d/build
+  * Do not build unused statically linked apps and Java bindings
+  * Delete useless Build-Depends on libswresample
+  * Fix building with LAPACK
+  * Build highgui module with QT support (Closes: 958028)
+
+ -- debian <debian@debian-project-1.novalocal>  Wed, 21 Sep 2022 23:34:11 +0000
+
 opencv (4.6.0+dfsg-6) unstable; urgency=medium
 
   * Team upload.
