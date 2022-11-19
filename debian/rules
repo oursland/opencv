@@ -185,3 +185,10 @@ execute_before_dh_install:
 	-find debian/tmp -type f -name '*.supp' -delete
 	-find debian/tmp -type d -empty -delete
 	-$(RM) -r $(BUILDDIR)-static
+
+execute_before_dh_strip_nondeterminism:
+	# This can be deleted after https://github.com/doxygen/doxygen/pull/9227 is
+	# in the version of Doxygen in Debian. It won't hurt afterwards, because
+	# there will be nothing to strip anymore.
+	sed -i -e 's,$(CURDIR)/\($(BUILDDIR)/\)\?,,g' \
+		debian/opencv-doc/usr/share/doc/opencv-doc/opencv4/html/opencv.tag
