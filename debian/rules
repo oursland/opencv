@@ -214,7 +214,7 @@ execute_before_dh_install:
 	-find debian/tmp -type d -empty -delete
 	-$(RM) -r $(BUILDDIR)-static
 
-execute_before_dh_strip_nondeterminism:
+execute_before_dh_strip_nondeterminism-indep:
 	# This can be deleted after https://github.com/doxygen/doxygen/pull/9227 is
 	# in the version of Doxygen in Debian. It won't hurt afterwards, because
 	# there will be nothing to strip anymore.
