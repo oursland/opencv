@@ -4,3 +4,5 @@ cmake-dont-install-inexistent-files.patch
 0005-Fix-building-error-with-OGRE-1.12.9.patch
 0006-Fix-LAPACK-finding-CMake-code.patch
 0007-Build-highgui-module-with-QT-support.patch
+0008-Do-not-embed-build-directory-in-binaries.patch
+0009-Do-not-embed-build-directory-in-documentation.patch

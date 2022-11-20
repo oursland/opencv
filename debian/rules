@@ -65,6 +65,7 @@ CMAKE_FLAGS = \
 	-GNinja \
 	-DANT_EXECUTABLE=/usr/bin/ant \
 	-DBUILD_EXAMPLES=OFF \
+	-DBUILD_INFO_SKIP_TIMESTAMP=ON \
 	-DBUILD_PROTOBUF=OFF \
 	-DBUILD_PERF_TESTS=OFF \
 	-DBUILD_opencv_dnn=ON \
@@ -157,6 +158,11 @@ override_dh_auto_configure:
 				-DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/{interpreter} \
 				-DPYTHON_LIBRARY:FILEPATH={interpreter.library_file} \
 				-DPYTHON_INCLUDE_DIR:PATH={interpreter.include_dir}"
+	# strip non-reproducible info from version string
+	sed -i -e 's,$(CURDIR),<<PKGBUILDDIR>>,g' \
+		-e "s,$$(uname -sr),,g" \
+		$(BUILDDIR)/modules/core/version_string.inc \
+		$(BUILDDIR)-static/modules/core/version_string.inc
 
 override_dh_auto_build:
 	# documentation
@@ -207,3 +213,10 @@ execute_before_dh_install:
 	-find debian/tmp -type f -name '*.supp' -delete
 	-find debian/tmp -type d -empty -delete
 	-$(RM) -r $(BUILDDIR)-static
+
+execute_before_dh_strip_nondeterminism:
+	# This can be deleted after https://github.com/doxygen/doxygen/pull/9227 is
+	# in the version of Doxygen in Debian. It won't hurt afterwards, because
+	# there will be nothing to strip anymore.
+	sed -i -e 's,$(CURDIR)/\($(BUILDDIR)/\)\?,,g' \
+		debian/opencv-doc/usr/share/doc/opencv-doc/opencv4/html/opencv.tag
