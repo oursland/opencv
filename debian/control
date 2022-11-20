@@ -47,7 +47,7 @@ Build-Depends: ant [!hppa !hurd-any !kfreebsd-any],
                dh-sequence-maven-repo-helper [!hppa !hurd-any !kfreebsd-any],
                ocl-icd-opencl-dev,
                protobuf-compiler,
-               python3-dev,
+               python3-all-dev,
                dh-sequence-numpy3,
                python3-bs4,
                qtbase5-dev,
@@ -1106,8 +1106,7 @@ Multi-Arch: same
 Section: python
 Depends: ${misc:Depends},
          ${python3:Depends},
-         ${shlibs:Depends},
-         libcharls2
+         ${shlibs:Depends}
 Description: Python 3 bindings for the computer vision library
  This package contains Python 3 bindings for the OpenCV (Open Computer Vision)
  library.
