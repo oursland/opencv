@@ -1,3 +1,11 @@
+opencv (4.6.0+dfsg-11) unstable; urgency=medium
+
+  * Update d/rules.
+    Use -DCMAKE_SKIP_RPATH=ON instead of -DCMAKE_BUILD_RPATH_USE_ORIGIN=ON.
+    (Closes: #1024638)
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Wed, 01 Mar 2023 10:21:45 +0900
+
 opencv (4.6.0+dfsg-10) unstable; urgency=medium
 
   * Update d/rules.

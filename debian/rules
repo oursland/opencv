@@ -151,7 +151,7 @@ override_dh_auto_configure:
 		-- --name=opencv --system=custom --configure-args "\
 			dh_auto_configure -S cmake -D modules/python -B {build_dir} -- \
 				-GNinja \
-				-DCMAKE_BUILD_RPATH_USE_ORIGIN=ON \
+				-DCMAKE_SKIP_RPATH=ON \
 				-DOpenCV_BINARY_DIR=$(CURDIR)/$(BUILDDIR) \
 				-DOPENCV_PYTHON_STANDALONE_INSTALL_PATH={install_dir} \
 				-DOPENCV_SKIP_PYTHON_LOADER=ON \
