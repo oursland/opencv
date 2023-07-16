@@ -8,3 +8,4 @@ cmake-dont-install-inexistent-files.patch
 0009-Do-not-embed-build-directory-in-documentation.patch
 0009-fix-wechat_qrcode-Init-nBytes-after-the-count-value-.patch
 0010-fix-wechat_qrcode-fixed-memory-leaks.patch
+cmake-no-download.patch
