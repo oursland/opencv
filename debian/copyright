@@ -35,6 +35,13 @@ License: Apache-2.0 AND BSD-3-Clause
 Comment: upstream relicensed the whole project to Apache-2.0, but a large
  portion of the source tree remains to be licensed under BSD-3-Clause.
 
+# /* embedded sources */
+Files: debian/3rdparty-4.6.0/quirc/*
+Copyright: 2010-2012, Daniel Beer <dlbeer@gmail.com>
+License: ISC
+Comment: We embed this code because it has been removed through Files-Excluded: 3rdparty.
+ We may include this part for the next upstream release.
+
 # /* apps */
 
 Files: apps/annotation/opencv_annotation.cpp
@@ -326,3 +333,17 @@ License: GPL-2.0+
  On Debian systems, the complete text of the GNU General
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
 
+License: ISC
+ Permission to use, copy, modify, and/or distribute this software for
+ any purpose with or without fee is hereby granted, provided that the
+ above copyright notice and this permission notice appear in all
+ copies.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL
+ WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE
+ AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+ DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+ PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+ PERFORMANCE OF THIS SOFTWARE.

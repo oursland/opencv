@@ -115,7 +115,7 @@ CMAKE_FLAGS = \
 	-DWITH_PROTOBUF=ON \
 	-DWITH_PVAPI=ON	\
 	-DWITH_QT=5 \
-	-DWITH_QUIRC=OFF \
+	-DWITH_QUIRC=ON \
 	-DWITH_TIFF=ON	\
 	-DWITH_UNICAP=OFF \
 	-DWITH_VTK=ON \
@@ -134,6 +134,8 @@ override_dh_auto_clean:
 
 
 override_dh_auto_configure:
+	# prepare the 3rd party directory
+	test -d 3rdparty || cp -av debian/3rdparty-4.6.0 3rdparty
 	# dynamically linked
 	dh_auto_configure -B $(BUILDDIR) \
 		-- $(CMAKE_FLAGS) $(CMAKE_JAVA_FLAGS) \
