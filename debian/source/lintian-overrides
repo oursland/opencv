@@ -1,0 +1,2 @@
+# This is to mitigate FTBFS due to OOM on low-mem architectures.
+opencv source: debian-rules-sets-DEB_BUILD_OPTIONS *

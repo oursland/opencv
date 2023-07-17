@@ -1,0 +1,6 @@
+libopencv-dev: no-manual-page [usr/bin/opencv_annotation]
+libopencv-dev: no-manual-page [usr/bin/opencv_interactive-calibration]
+libopencv-dev: no-manual-page [usr/bin/opencv_model_diagnostics]
+libopencv-dev: no-manual-page [usr/bin/opencv_version]
+libopencv-dev: no-manual-page [usr/bin/opencv_visualisation]
+libopencv-dev: no-manual-page [usr/bin/opencv_waldboost_detector]

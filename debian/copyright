@@ -35,13 +35,6 @@ License: Apache-2.0 AND BSD-3-Clause
 Comment: upstream relicensed the whole project to Apache-2.0, but a large
  portion of the source tree remains to be licensed under BSD-3-Clause.
 
-# /* embedded sources */
-Files: debian/3rdparty-4.6.0/quirc/*
-Copyright: 2010-2012, Daniel Beer <dlbeer@gmail.com>
-License: ISC
-Comment: We embed this code because it has been removed through Files-Excluded: 3rdparty.
- We may include this part for the next upstream release.
-
 # /* apps */
 
 Files: apps/annotation/opencv_annotation.cpp
@@ -233,6 +226,13 @@ Copyright: 2004-2008 Sam Hocevar <sam@zoy.org>
            2018-2019 Mo Zhou <cdluminate@gmail.com>
            2018-2020 Mo Zhou <lumin@debian.org>
 License: BSD-3-clause
+
+# /* embedded sources */
+Files: debian/3rdparty-4.6.0/quirc/*
+Copyright: 2010-2012, Daniel Beer <dlbeer@gmail.com>
+License: ISC
+Comment: We embed this code because it has been removed through Files-Excluded: 3rdparty.
+ We may include this part for the next upstream release.
 
 License: BSD-3-clause
  Redistribution and use in source and binary forms, with or without modification,
