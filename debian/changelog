@@ -1,12 +1,12 @@
-opencv (4.6.0+dfsg-13) UNRELEASED; urgency=medium
+opencv (4.6.0+dfsg-13) unstable; urgency=medium
 
-  * Embed and enable the 3rdparty source for QUIRC.
-  * Add several missing build dependencies.
+  * Embed and enable the 3rdparty source for QUIRC as per user request.
+  * Add several missing build dependencies for libopenjp, libva and imath.
   * Patch: remove the downloading function from cmake files.
-  * Add several other missing build dependencies.
   * Fix obsolete B-D libgl1-mesa-dev => libgl-dev.
+  * Update copyright and lintian overrides. It's lintian-clean now.
 
- -- Mo Zhou <lumin@debian.org>  Sun, 16 Jul 2023 14:57:29 -0700
+ -- Mo Zhou <lumin@debian.org>  Sun, 16 Jul 2023 19:20:35 -0700
 
 opencv (4.6.0+dfsg-12) unstable; urgency=medium
 
